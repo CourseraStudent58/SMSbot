@@ -1,10 +1,10 @@
-from flask import Flask, url_for, render_template, redirect, flash, request
-from SMSbot.config import Config
-from SMSbot.cpaas import Cpaas
-from SMSbot.menubot import MenuBot
-from SMSbot.menuform import MenuForm
-from SMSbot.setupform import SetupForm
-from SMSbot.logger import log
+from flask import Flask, render_template, request
+from config import Config
+from cpaas import Cpaas
+from menubot import MenuBot
+from menuform import MenuForm
+from setupform import SetupForm
+from logger import log
 
 app = Flask(__name__, instance_relative_config=False)
 app.config.from_object(Config)

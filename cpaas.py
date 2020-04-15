@@ -1,10 +1,8 @@
-
-from SMSbot.menubot import MenuBot
-from SMSbot.setupform import SetupForm
-from SMSbot.logger import log
+from setupform import SetupForm
+from logger import log
 
 from cpaassdk import Client
-from flask import Flask, request
+from flask import request
 import sys
 
 # projectTN = '+17327376809'
