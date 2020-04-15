@@ -1,0 +1,6 @@
+[{"query": "hours", "reply": "M-F 9-5, Sat 8-noon, Sun closed", "active": true},
+  {"query": "location", "reply": "123 Main St, Middletown, NJ", "active": true},
+  {"query": "special", "reply": "Half off with code SMS", "active": true},
+  {"query": "soup", "reply": "Kale with Portuguese Sausage", "active": true},
+  {"query": "phone", "reply": "888-555-1212", "active": true}
+]
