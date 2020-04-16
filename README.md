@@ -1,12 +1,14 @@
 SMSbot
 ======
-SMSbot implements a auto-responder ("bot") for SMS messages.  It is intended to be deployed as a turn-key application for the AT&T API Marketplace.  The app starts with a default set of responses, but it is expected to be customized by the deployer.
+SMSbot is a prototype implementation of an auto-responder ("bot") for SMS messages.  It is intended to be deployed as a turn-key application for the AT&T API Marketplace.  See https://apimarket.att.com/ 
+
+The app starts with a default set of responses, but it is expected to be customized by the deployer.
 
 ### Pre-requisites
 1. AT&T Marketplace Account, with a purchased Local Number.
 2. A host to run this application with a "publicly routable FQDN"
 
-NOTE: Item 2 can be satisfied by running this application on a laptop behind a NAT/firewall, and installing a tunnelling utility such as ngrok.  This utility registers a temporary FQDN on their public server, and routes traffic via a secure tunnel to your app running on localhost.  See https://ngrok.com
+NOTE: Item 2 can be satisfied by running this application on a laptop behind a NAT/firewall, and installing a tunnelling utility such as *ngrok*.  This utility registers a temporary FQDN on their public server, and routes traffic via a secure tunnel to your app running on localhost.  See https://ngrok.com
 
 ### Deployment Instructions
 1. Clone this repo
@@ -35,14 +37,21 @@ The app is deployed with a starter SMS menu which will need to be edited.
 Using a browser, navigate to the SMSbot Home screen http://localhost:5000
 Select the Customize SMS Menu from the navigation menu.
 
-The form presents the set of *requests* and *replys* that make up the bot logic.
+The form presents the set of *query* and *reply* pairs that make up the bot logic.
 Use this form to:
-- modify the request value
+- modify the query value
 - modify the response to any request value
 - activate or deactivate a particular menu item
 - add a new menu item 
 
 Remember to click on Submit to make your changes take effect.
+### Reply Logic
+The logic that determines the value of the reply is extremely simple:
+- if the request matches 1 of the query values, then the corresponding reply value is returned
+- otherwise, the reply is a help (aka usage) message which lists all the currently active queries
+
+One could envision improved algorithms for this function in the future.
+
 ### Usage Examples
 
 In these examples, the Project TN is the Destination TN.  i.e. it is the TN that some user will send a query to.  We'll call that user the Sender.
