@@ -88,4 +88,4 @@ In these examples, the Project TN is the Destination TN.  i.e. it is the TN that
 | phone | 88-555-1212 |
 | soup | Split Pea |
 | covid | We have curbside pickup and limited occupancy restrictions |
-| foo | I can reply to hours, location, soup, phone |
+| foo | I can reply to hours, location, soup, phone, covid |
