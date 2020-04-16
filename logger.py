@@ -12,5 +12,3 @@ def log(*args):
 
 debug = True
 
-# publicFQDN = '969dfd1c.ngrok.io'  #urllib.request.urlopen('https://ident.me').read().decode('utf8')
-# logger(publicFQDN)

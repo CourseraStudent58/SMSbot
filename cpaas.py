@@ -17,11 +17,7 @@ class Cpaas:
         self.bot = bot
         setup = SetupForm()
         setup.loadSetup()
-        # self.client = Client({
-        #     'client_id': '1c8be959-6e88-4e36-ad44-007dc6a81706',
-        #     'client_secret': '8a9b68ca-d0e8-40e3-898d-1eda8ba2ccd8',
-        #     'base_url': 'https://oauth-cpaas.att.com'
-        # })
+
         try:
             self.client = Client({
                 'client_id': setup.private_key.data,
@@ -30,11 +26,7 @@ class Cpaas:
             })
             log('type of Client ', type(self.client))
             log(self.client)
-            # response = self.client.conversation.subscribe({
-            #     'webhook_url': 'https://' + globals.publicFQDN + '/inbound-sms/webhook',
-            #     'type': 'sms',
-            #     'destination_address': projectTN
-            # })
+
             self.projectTN = setup.project_TN.data
             response = self.client.conversation.subscribe({
                 'webhook_url': setup.public_url.data + '/inbound-sms/webhook',
@@ -57,9 +49,6 @@ class Cpaas:
             dict(type='sms', destination_address=to, sender_address=self.projectTN, message=msg))
         log(response)
 
-    # @app.route('/inbound-sms/webhook', methods=['POST'])
-    # def webhook():
-
     def post(self):
         log("post");
         sys.stdout.flush()
@@ -70,7 +59,6 @@ class Cpaas:
             if inboundNotification is not None:
                 parsed_response = inboundNotification['inboundSMSMessage']
 
-                # parsed_response = client.notification.parse(d)
                 log(parsed_response)
                 reply = self.bot.determineReply(parsed_response['message'])
                 self.sendMsg(parsed_response['senderAddress'], reply)

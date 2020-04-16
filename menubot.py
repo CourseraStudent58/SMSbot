@@ -46,7 +46,5 @@ class MenuBot():
 
         return 'I can reply to ' + all
 
-    # def __init__(self):
-    #     self.loadMenu()
 
 
